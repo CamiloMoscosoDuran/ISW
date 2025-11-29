@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control - ContactHub Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animations.css') }}">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'royal': '#7c3aed',
+                        'gold': '#fbbf24',
+                        'dark-purple': '#581c87'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-purple-900 via-violet-900 to-indigo-900 min-h-screen py-8 px-4 relative overflow-hidden">
+    <!-- Partículas de fondo -->
+    <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute w-96 h-96 bg-gradient-to-r from-yellow-400 to-gold rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob top-0 -left-20"></div>
+        <div class="absolute w-96 h-96 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000 top-0 -right-20"></div>
+        <div class="absolute w-96 h-96 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-4000 bottom-0 left-20"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+        <!-- Header -->
+        <div class="mb-8">
+            <div class="flex items-center justify-between mb-6 bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-purple-300/20">
+                <div>
+                    <h1 class="text-4xl font-bold text-white flex items-center gap-3">
+                        <i class="fas fa-gem text-gold"></i>
+                        ContactHub Pro
+                    </h1>
+                    <p class="text-purple-200 mt-2 flex items-center gap-2">
+                        <i class="fas fa-chart-line text-gold"></i>
+                        Dashboard de contactos empresariales
+                    </p>
+                </div>
+                <a href="/" class="bg-gradient-to-r from-gold to-yellow-400 text-purple-900 px-6 py-3 rounded-xl flex items-center gap-2 transition duration-300 font-bold hover:from-yellow-300 hover:to-gold transform hover:scale-105 shadow-lg">
+                    <i class="fas fa-plus-circle"></i>
+                    Nuevo Contacto
+                </a>
+            </div>
+        </div>
+
+        <!-- Mensajes Flash -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="mb-6 p-4 rounded-xl flex items-start gap-3 {{ 'bg-emerald-50 border border-emerald-200 shadow-emerald-100/50' if category=='success' else 'bg-rose-50 border border-rose-200 shadow-rose-100/50' }} shadow-lg">
+                    <i class="fas {{ 'fa-check-circle text-emerald-600 mt-0.5' if category=='success' else 'fa-exclamation-triangle text-rose-600 mt-0.5' }}"></i>
+                    <p class="{{ 'text-emerald-800 font-medium' if category=='success' else 'text-rose-800 font-medium' }}">{{ message }}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <!-- Tabla de Leads -->
+        {% if leads %}
+        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <!-- Estadísticas -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6 border-b border-gray-200 bg-gray-50">
+                <div class="text-center">
+                    <p class="text-gray-600 text-sm font-semibold">Total de Leads</p>
+                    <p class="text-3xl font-bold text-blue-600">{{ leads|length }}</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-gray-600 text-sm font-semibold">Consultoría</p>
+                    <p class="text-3xl font-bold text-green-600">{{ leads|selectattr('interes', 'equalto', 'Consultoría')|list|length }}</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-gray-600 text-sm font-semibold">Soporte</p>
+                    <p class="text-3xl font-bold text-orange-600">{{ leads|selectattr('interes', 'equalto', 'Soporte')|list|length }}</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-gray-600 text-sm font-semibold">Desarrollo</p>
+                    <p class="text-3xl font-bold text-purple-600">{{ leads|selectattr('interes', 'equalto', 'Desarrollo')|list|length }}</p>
+                </div>
+            </div>
+
+            <!-- Tabla responsiva -->
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-sm font-semibold"># ID</th>
+                            <th class="px-6 py-3 text-left text-sm font-semibold">Nombre</th>
+                            <th class="px-6 py-3 text-left text-sm font-semibold">Correo</th>
+                            <th class="px-6 py-3 text-left text-sm font-semibold">Teléfono</th>
+                            <th class="px-6 py-3 text-left text-sm font-semibold">Interés</th>
+                            <th class="px-6 py-3 text-left text-sm font-semibold">Fecha</th>
+                            <th class="px-6 py-3 text-center text-sm font-semibold">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        {% for lead in leads %}
+                        <tr class="hover:bg-gray-50 transition duration-200">
+                            <td class="px-6 py-4 text-sm font-semibold text-gray-700">{{ lead.id }}</td>
+                            <td class="px-6 py-4 text-sm">
+                                <div class="flex items-center gap-2">
+                                    <i class="fas fa-user-circle text-blue-500"></i>
+                                    <span class="font-medium text-gray-900">{{ lead.nombre }}</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-sm text-gray-600">
+                                <a href="mailto:{{ lead.email }}" class="text-blue-600 hover:underline">{{ lead.email }}</a>
+                            </td>
+                            <td class="px-6 py-4 text-sm text-gray-600">
+                                {% if lead.telefono %}
+                                    <a href="tel:{{ lead.telefono }}" class="text-blue-600 hover:underline">{{ lead.telefono }}</a>
+                                {% else %}
+                                    <span class="text-gray-400">No registrado</span>
+                                {% endif %}
+                            </td>
+                            <td class="px-6 py-4 text-sm">
+                                <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold
+                                    {% if lead.interes == 'Consultoría' %}
+                                        bg-green-100 text-green-800
+                                    {% elif lead.interes == 'Soporte' %}
+                                        bg-orange-100 text-orange-800
+                                    {% else %}
+                                        bg-purple-100 text-purple-800
+                                    {% endif %}
+                                ">
+                                    {{ lead.interes }}
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-sm text-gray-600">
+                                {{ lead.fecha_registro.strftime('%d/%m/%Y %H:%M') if lead.fecha_registro else '-' }}
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <form method="POST" action="{{ url_for('eliminar_lead', lead_id=lead.id) }}" class="inline" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este lead?');">
+                                    <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded transition duration-300 flex items-center gap-2 mx-auto">
+                                        <i class="fas fa-trash"></i>
+                                        Eliminar
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% else %}
+        <div class="bg-white rounded-2xl shadow-2xl p-12 text-center">
+            <i class="fas fa-inbox text-6xl text-gray-300 mb-4"></i>
+            <h2 class="text-2xl font-bold text-gray-700 mb-2">Sin Leads Registrados</h2>
+            <p class="text-gray-500 mb-6">Aún no hay contactos registrados en el sistema</p>
+            <a href="/" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg inline-flex items-center gap-2 transition duration-300">
+                <i class="fas fa-plus"></i>
+                Crear Primer Lead
+            </a>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Script de Animaciones -->
+    <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+</body>
+</html>

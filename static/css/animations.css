@@ -1,0 +1,813 @@
+/* ============================================
+   ANIMACIONES CSS - ProspectHub Elite
+   Tema Premium Púrpura/Dorado (Simplificado)
+   ============================================ */
+
+/* Reset para asegurar visibilidad inmediata */
+* {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* ============================================
+   1. ANIMACIONES BÁSICAS Y SEGURAS
+   ============================================ */
+
+@keyframes simpleGlow {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+    }
+}
+
+@keyframes softPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes gentleHover {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-3px);
+    }
+}
+
+/* ============================================
+   2. CLASES APLICABLES SEGURAS
+   ============================================ */
+
+.soft-glow {
+    animation: simpleGlow 2s infinite ease-in-out;
+}
+
+.soft-pulse {
+    animation: softPulse 2s infinite ease-in-out;
+}
+
+.gentle-hover:hover {
+    animation: gentleHover 0.3s ease-in-out forwards;
+}
+
+/* ============================================
+   3. TRANSICIONES BÁSICAS
+   ============================================ */
+
+.smooth-transition {
+    transition: all 0.3s ease;
+}
+
+.button-hover:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
+}
+
+.input-focus:focus {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+/* ============================================
+   4. EFECTOS HOVER SIMPLES
+   ============================================ */
+
+.hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.2);
+}
+
+.hover-scale:hover {
+    transform: scale(1.02);
+}
+
+/* ============================================
+   5. GARANTIZAR VISIBILIDAD
+   ============================================ */
+
+body, html {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.container, .content, .form-group, form, div {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* ============================================
+   6. LOADING SEGURO
+   ============================================ */
+
+@keyframes safeLoading {
+    0% {
+        background-color: #8b5cf6;
+    }
+    50% {
+        background-color: #f59e0b;
+    }
+    100% {
+        background-color: #8b5cf6;
+    }
+}
+
+.safe-loading {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    animation: safeLoading 1s infinite ease-in-out;
+}
+
+/* ============================================
+   7. RESPONSIVE SEGURO
+   ============================================ */
+
+@media (max-width: 768px) {
+    .hover-lift:hover {
+        transform: none;
+    }
+    
+    .button-hover:hover {
+        transform: scale(1.02);
+    }
+}
+
+/* ============================================
+   8. ACCESIBILIDAD
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ============================================
+   2. ANIMACIONES DE INTERACCIÓN ELITE
+   ============================================ */
+
+@keyframes premiumHover {
+    from {
+        transform: scale(1) rotate(0deg);
+        box-shadow: 0 4px 20px rgba(139, 92, 246, 0.2);
+    }
+    to {
+        transform: scale(1.05) rotate(1deg);
+        box-shadow: 0 8px 40px rgba(139, 92, 246, 0.4);
+    }
+}
+
+@keyframes inputElite {
+    from {
+        border-color: #e5e7eb;
+        box-shadow: none;
+    }
+    to {
+        border-color: #8b5cf6;
+        box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+    }
+}
+
+@keyframes buttonGoldPress {
+    0% {
+        transform: scale(1);
+        background-position: 0% center;
+    }
+    50% {
+        transform: scale(0.95);
+        background-position: 100% center;
+    }
+    100% {
+        transform: scale(1.02);
+        background-position: 0% center;
+    }
+}
+
+@keyframes tableRowSlide {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+        background-color: transparent;
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        background-color: rgba(139, 92, 246, 0.05);
+    }
+}
+
+/* ============================================
+   3. EFECTOS ESPECIALES PREMIUM
+   ============================================ */
+
+@keyframes crownSpin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes gemPulse {
+    0%, 100% {
+        transform: scale(1);
+        filter: brightness(1) drop-shadow(0 0 10px rgba(245, 158, 11, 0.5));
+    }
+    50% {
+        transform: scale(1.1);
+        filter: brightness(1.3) drop-shadow(0 0 20px rgba(245, 158, 11, 0.8));
+    }
+}
+
+@keyframes luxuryCard {
+    from {
+        transform: perspective(1000px) rotateX(10deg) rotateY(-5deg);
+        opacity: 0;
+        filter: blur(3px);
+    }
+    to {
+        transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+@keyframes statsCounter {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+        color: #9ca3af;
+    }
+    to {
+        transform: scale(1.1);
+        opacity: 1;
+        color: #6b46c1;
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ============================================
+   4. CLASES DE ANIMACIÓN APLICABLES
+   ============================================ */
+
+.luxury-fade-in {
+    animation: luxuryFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.gem-slide-in {
+    animation: gemSlideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.royal-slide-down {
+    animation: royalSlideDown 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.diamond-pop {
+    animation: diamondPop 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.gold-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.4), transparent);
+    background-size: 200% 100%;
+    animation: goldShimmer 2s infinite;
+}
+
+.purple-glow {
+    animation: purpleGlow 2s infinite ease-in-out;
+}
+
+.premium-hover:hover {
+    animation: premiumHover 0.3s ease-in-out forwards;
+}
+
+.input-elite:focus {
+    animation: inputElite 0.3s ease-in-out forwards;
+}
+
+.button-gold-press:active {
+    animation: buttonGoldPress 0.2s ease-in-out;
+}
+
+.table-row-slide {
+    animation: tableRowSlide 0.5s ease-out forwards;
+}
+
+.crown-spin:hover {
+    animation: crownSpin 1s linear infinite;
+}
+
+.gem-pulse {
+    animation: gemPulse 2s infinite ease-in-out;
+}
+
+.luxury-card {
+    animation: luxuryCard 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.stats-counter {
+    animation: statsCounter 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.gradient-shift {
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease-in-out infinite;
+}
+
+/* ============================================
+   5. EFECTOS DE PARTÍCULAS Y OVERLAYS
+   ============================================ */
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1) rotate(180deg);
+    }
+}
+
+.sparkle-effect::before {
+    content: '✨';
+    position: absolute;
+    top: 10%;
+    right: 15%;
+    animation: sparkle 2s infinite;
+}
+
+.sparkle-effect::after {
+    content: '💎';
+    position: absolute;
+    bottom: 15%;
+    left: 10%;
+    animation: sparkle 2.5s infinite 0.5s;
+}
+
+/* ============================================
+   6. TRANSICIONES SUAVES PREMIUM
+   ============================================ */
+
+.smooth-premium {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ultra-smooth {
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.elastic-bounce {
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ============================================
+   7. EFECTOS HOVER ESPECIALES
+   ============================================ */
+
+.hover-lift:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(139, 92, 246, 0.3);
+}
+
+.hover-glow:hover {
+    box-shadow: 
+        0 0 30px rgba(139, 92, 246, 0.6),
+        0 0 60px rgba(139, 92, 246, 0.4),
+        inset 0 0 20px rgba(245, 158, 11, 0.2);
+}
+
+.hover-rotate:hover {
+    transform: rotate(3deg) scale(1.05);
+}
+
+/* ============================================
+   8. LOADING ESTADOS PREMIUM
+   ============================================ */
+
+@keyframes luxuryLoading {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        background-color: #8b5cf6;
+    }
+    50% {
+        transform: scale(1.2) rotate(180deg);
+        background-color: #f59e0b;
+    }
+}
+
+.luxury-loading {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    animation: luxuryLoading 1.5s infinite ease-in-out;
+}
+
+/* ============================================
+   9. RESPONSIVE ANIMATIONS
+   ============================================ */
+
+@media (max-width: 768px) {
+    .luxury-fade-in {
+        animation-duration: 0.5s;
+    }
+    
+    .diamond-pop {
+        animation-duration: 0.7s;
+    }
+    
+    .luxury-card {
+        animation-duration: 0.6s;
+    }
+}
+
+/* ============================================
+   10. REDUCIR MOVIMIENTO PARA ACCESIBILIDAD
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ============================================
+   11. EFECTOS DE FONDO ANIMADOS
+   ============================================ */
+
+.animated-bg {
+    background: linear-gradient(
+        -45deg,
+        #6b46c1,
+        #8b5cf6,
+        #a855f7,
+        #c084fc,
+        #f59e0b
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.02);
+    }
+}
+
+@keyframes parentGlow {
+    from {
+        box-shadow: 0 0 0 rgba(37, 99, 235, 0);
+    }
+    to {
+        box-shadow: 0 0 8px rgba(37, 99, 235, 0.3);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+@keyframes buttonBounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes buttonClick {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes buttonSubmit {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+}
+
+/* ============================================
+   4. ANIMACIÓN RIPPLE EFFECT
+   ============================================ */
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(0);
+    animation: rippleAnimation 0.6s ease-out;
+    pointer-events: none;
+}
+
+@keyframes rippleAnimation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* ============================================
+   5. ANIMACIÓN DE CARGA
+   ============================================ */
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.fa-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* ============================================
+   6. ANIMACIÓN PULSE
+   ============================================ */
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ============================================
+   7. ANIMACIÓN FADEIN
+   ============================================ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* ============================================
+   8. ANIMACIÓN SCALE
+   ============================================ */
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.scale-in {
+    animation: scaleIn 0.3s ease-out;
+}
+
+/* ============================================
+   9. ANIMACIÓN BOUNCE
+   ============================================ */
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.bounce {
+    animation: bounce 1s infinite;
+}
+
+/* ============================================
+   10. ANIMACIÓN SLIDE
+   ============================================ */
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.slide-in {
+    animation: slideIn 0.4s ease-out;
+}
+
+/* ============================================
+   ESTILOS DE TRANSICIÓN SUAVE
+   ============================================ */
+
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, 
+                border-color 0.3s ease, box-shadow 0.3s ease,
+                transform 0.2s ease;
+}
+
+button, a, input, select, textarea {
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* ============================================
+   EFECTOS HOVER MEJORADOS
+   ============================================ */
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   ANIMACIÓN DE CARGA DE PÁGINA
+   ============================================ */
+
+body.loading {
+    opacity: 0;
+}
+
+body.loaded {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* ============================================
+   ANIMACIÓN DE SCROLLS
+   ============================================ */
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-on-scroll {
+    animation: slideUp 0.6s ease forwards;
+}
+
+/* ============================================
+   EFECTOS DE FONDO ANIMADOS
+   ============================================ */
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.gradient-animated {
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
+}
+
+/* ============================================
+   ANIMACIÓN DE ICONOS
+   ============================================ */
+
+@keyframes iconBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.icon-bounce {
+    animation: iconBounce 0.6s ease infinite;
+}
+
+@keyframes iconRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.icon-rotate {
+    animation: iconRotate 2s linear infinite;
+}
+
+/* ============================================
+   ANIMACIÓN DE VALIDACIÓN
+   ============================================ */
+
+.input-success {
+    animation: scaleIn 0.3s ease;
+    border-color: #10b981 !important;
+}
+
+.input-error {
+    animation: shake 0.5s ease;
+    border-color: #ef4444 !important;
+}
+
+/* ============================================
+   MEDIA QUERIES PARA RENDIMIENTO
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ============================================
+   OPTIMIZACIONES DE RENDIMIENTO
+   ============================================ */
+
+.gpu-accelerated {
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+    backface-visibility: hidden;
+}
